@@ -1,0 +1,17 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {{ content_for_header }}
+
+    {{ 'style.scss' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
+  </head>
+  <body>
+    {% section 'header' %}
+    {% comment %} {{ content_for_layout }} {% endcomment %}
+    {% section 'footer' %}
+  </body>
+</html>

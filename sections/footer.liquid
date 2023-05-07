@@ -1,0 +1,113 @@
+<footer class="footer">
+  <div class="width">
+    <div class="footer-top">
+      {% for block in section.blocks %}
+        {% if block.type == 'navigation' %}
+          <div>
+            <h2 class="panel-title">{{ block.settings.linklist.title }}</h2>
+            <ul>
+              {% for link in block.settings.linklist.links %}
+                <li>
+                  <a href="{{link.url}}">{{ link.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        {% elsif block.type == 'newsletter' %}
+          <div>
+            <h2 class="panel-title">{{ block.settings.heading }}</h2>
+            <p>{{ block.settings.text }}</p>
+
+            {% form 'customer', id: 'footer-newsletter' %}
+              {% if form.posted_successfully %}
+                <p>You've been subscribed!</p>
+              {% endif %}
+              {% if form.errors %}
+                <p>{{ form.erros.messages.email }}</p>
+              {% endif %}
+
+              <input type="hidden" name="contact[tag]" vale="newsletter">
+              <input name="contact[email]" type="email" placeholder="Email address">
+              <button type="submit">Subscribe</button>
+            {% endform %}
+          </div>
+        {% elsif block.type == 'text' %}
+          <div>
+            <h2 class="panel-title">{{ block.settings.heading }}</h2>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <div class="footer-bottom">
+      <p>{{ section.settings.copyright }}</p>
+
+      {% comment %}
+        <div class="footer-cards">
+          <ul>
+            <li>{% render 'icon-account' %}</li>
+          </ul>
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "id": "copyright",
+      "label": "Copyright text",
+      "type": "text"
+    }
+  ],
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": [
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Heading text"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "Body text"
+        }
+      ]
+    },
+    {
+      "name": "Navigation colum",
+      "type": "navigation",
+      "settings": [
+        {
+          "id": "linklist",
+          "type": "link_list",
+          "label": "Navigation menu"
+        }
+      ]
+    },
+    {
+      "name": "Text",
+      "type": "text",
+      "settings": [
+        {
+          "id": "heading",
+          "type": "text",
+          "label": "Heading text"
+        },
+        {
+          "id": "text",
+          "type": "richtext",
+          "label": "Body text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
