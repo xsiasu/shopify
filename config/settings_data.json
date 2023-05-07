@@ -1,5 +1,6 @@
 {
   "current": {
+    "page_width": 1200,
     "logo": "shopify:\/\/shop_images\/logo.png",
     "logo_width": 170,
     "colors_solid_button_labels": "#ffffff",
@@ -17,7 +18,6 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "page_width": 1200,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -164,6 +164,14 @@
         ],
         "settings": {
           "copyright": "@2023 copyright reserved"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo.png",
+          "padding": 24,
+          "navigation": "main-menu"
         }
       }
     },
