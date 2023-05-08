@@ -143,13 +143,6 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "a5f2ec3d-df52-4883-be20-6aec1818c4c3": {
-            "type": "newsletter",
-            "settings": {
-              "heading": "",
-              "text": ""
-            }
-          },
           "314a408d-7709-493d-b013-090d162823f3": {
             "type": "text",
             "settings": {
@@ -168,13 +161,26 @@
             "settings": {
               "linklist": "help"
             }
+          },
+          "74ef43ff-d0e8-4806-9e5c-79b6433e5283": {
+            "type": "navigation",
+            "settings": {
+              "linklist": "footer"
+            }
+          },
+          "d62533dc-ab16-4811-8dc5-7eb14e6d8f54": {
+            "type": "navigation",
+            "settings": {
+              "linklist": "link-list-1"
+            }
           }
         },
         "block_order": [
-          "a5f2ec3d-df52-4883-be20-6aec1818c4c3",
           "314a408d-7709-493d-b013-090d162823f3",
           "1ff18dcc-2b4c-4f60-8804-43e2c4af7a11",
-          "7cf620c6-b8bf-4b63-b859-9771ef989dfe"
+          "7cf620c6-b8bf-4b63-b859-9771ef989dfe",
+          "74ef43ff-d0e8-4806-9e5c-79b6433e5283",
+          "d62533dc-ab16-4811-8dc5-7eb14e6d8f54"
         ],
         "settings": {
           "copyright": "@2023 copyright reserved"
