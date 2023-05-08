@@ -3,9 +3,9 @@
     <div class="footer-top">
       {% for block in section.blocks %}
         {% if block.type == 'navigation' %}
-          <div class="navigation-area">
+          <div class="navigation-block">
             <h2 class="title">{{ block.settings.linklist.title }}</h2>
-            <ul>
+            <ul class="list-sub">
               {% for link in block.settings.linklist.links %}
                 <li>
                   <a href="{{link.url}}">{{ link.title }}</a>
@@ -15,7 +15,7 @@
           </div>
 
         {% elsif block.type == 'newsletter' %}
-          <div class="newsletter-area">
+          <div class="newsletter-block">
             <h2 class="title">{{ block.settings.heading }}</h2>
             <p>{{ block.settings.text }}</p>
 
@@ -33,7 +33,7 @@
             {% endform %}
           </div>
         {% elsif block.type == 'text' %}
-          <div class="info-area">
+          <div class="info-block">
             <h2 class="title">{{ block.settings.heading }}</h2>
             <p>{{ block.settings.text }}</p>
           </div>
