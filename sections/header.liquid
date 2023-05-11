@@ -9,9 +9,9 @@
     ></a>
   </div>
   <button class="header-hamburger">
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
-    <span class="hamburger-bar"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
   </button>
   <div class="wrap-header-nav">
     <ul class="header-nav">
@@ -36,10 +36,12 @@
 
 <script>
   document.querySelector('.header-hamburger').addEventListener('click', () => {
+    document.querySelector('.header-hamburger').classList.toggle('is-active');
     document.querySelector('.header').classList.toggle('nav-active');
     document.body.classList.toggle('fixed');
   });
   document.querySelector('.header-nav-overlay').addEventListener('click', () => {
+    document.querySelector('.header-hamburger').classList.remove('is-active');
     document.querySelector('.header').classList.remove('nav-active');
     document.body.classList.remove('fixed');
   });
