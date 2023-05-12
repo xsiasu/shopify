@@ -1,53 +1,76 @@
 <div class="width">
-  <div class="logo-area">
-    <a href="/" class="logo"
-      ><img
-        src="{{ section.settings.logo | img_url: 'master' }}"
-        alt="{{site.name}}"
+  <div class="header-top">
+    <div class="logo-area">
+      <a href="/" class="logo"
+        ><img
+          src="{{ section.settings.logo | img_url: 'master' }}"
+          alt="{{site.name}}"
 
-        width="165"
-    ></a>
-  </div>
-  <button class="header-hamburger">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-  </button>
+          width="165"
+      ></a>
+    </div>
+    <button class="header-hamburger">
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
 
-  <div class="wrap-header-nav">
-    <div class="gnb">
-      <ul class="header-nav">
-        {% for link in section.settings.navigation.links %}
-          <li class="nav-item">
+    <div class="util-menu">
+      <ul class="list-util">
+        {% for link in section.settings.utilmenu.links %}
+          <li class="util-item">
             <a class="link" href="{{link.url}}">{{ link.title }}</a>
-            {% if link.links != blank %}
-              <ul class="header-nav-sub">
-                {% for child in link.links %}
-                  <li class="nav-item-sub">
-                    <a href="{{child.url}}">{{ child.title }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
           </li>
         {% endfor %}
       </ul>
+    </div>
+  </div>
+
+  <div class="header-bottom">
+    <div class="wrap-header-nav">
+      <div class="gnb">
+        <ul class="header-nav">
+          {% for link in section.settings.navigation.links %}
+            <li class="nav-item">
+              <a class="link" href="{{link.url}}">{{ link.title }}</a>
+              {% if link.links != blank %}
+                <ul class="header-nav-sub">
+                  {% for child in link.links %}
+                    <li class="nav-item-sub">
+                      <a href="{{child.url}}">{{ child.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 <div class="header-nav-overlay"></div>
 
 <script>
-  document.querySelector('.header-hamburger').addEventListener('click', () => {
-    document.querySelector('.header-hamburger').classList.toggle('is-active');
-    document.querySelector('.header').classList.toggle('nav-active');
-    document.body.classList.toggle('fixed');
-  });
-  document.querySelector('.header-nav-overlay').addEventListener('click', () => {
-    document.querySelector('.header-hamburger').classList.remove('is-active');
-    document.querySelector('.header').classList.remove('nav-active');
-    document.body.classList.remove('fixed');
-  });
+  function hamburgerMenu() {
+    const header = document.querySelector('.header');
+    const hamburgerIcon = document.querySelector('.header-hamburger');
+    const overlay = document.querySelector('.header-nav-overlay');
+
+    hamburgerIcon.addEventListener('click', () => {
+      hamburgerIcon.classList.toggle('is-active');
+      header.classList.toggle('nav-active');
+      document.body.classList.toggle('fixed');
+    });
+
+    overlay.addEventListener('click', () => {
+      hamburgerIcon.classList.remove('is-active');
+      header.classList.remove('nav-active');
+      document.body.classList.remove('fixed');
+    });
+  }
+
+  hamburgerMenu();
 </script>
 
 {% schema %}
@@ -75,6 +98,12 @@
       "id": "navigation",
       "label": "Navigation menu",
       "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "utilmenu",
+      "label": "Util menu",
+      "default": "util-menu"
     }
   ]
 }
