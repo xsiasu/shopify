@@ -13,23 +13,26 @@
     <span class="line"></span>
     <span class="line"></span>
   </button>
+
   <div class="wrap-header-nav">
-    <ul class="header-nav">
-      {% for link in section.settings.navigation.links %}
-        <li class="nav-item">
-          <a href="{{link.url}}">{{ link.title }}</a>
-          {% if link.links != blank %}
-            <ul class="header-nav-sub">
-              {% for child in link.links %}
-                <li class="nav-item-sub">
-                  <a href="{{child.url}}">{{ child.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="gnb">
+      <ul class="header-nav">
+        {% for link in section.settings.navigation.links %}
+          <li class="nav-item">
+            <a class="link" href="{{link.url}}">{{ link.title }}</a>
+            {% if link.links != blank %}
+              <ul class="header-nav-sub">
+                {% for child in link.links %}
+                  <li class="nav-item-sub">
+                    <a href="{{child.url}}">{{ child.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
 </div>
 <div class="header-nav-overlay"></div>
