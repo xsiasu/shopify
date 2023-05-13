@@ -14,7 +14,8 @@
   </head>
   <body>
     {% section 'header' %}
-    {{ content_for_layout }}
+    {% comment %} {{ content_for_layout }} {% endcomment %}
+    <div style="height:500px"></div>
     {% section 'footer' %}
   </body>
 </html>
