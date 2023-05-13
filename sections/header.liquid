@@ -15,28 +15,32 @@
       <span class="line"></span>
     </button>
 
-    <div class="util-menu">
-      <ul class="list-util">
-        {% for link in section.settings.blocks %}
-          {% if block.type="navigation" %}
-            <li class="util-item">
-              <a class="link" href="{{link.url}}">dddd{{ link.title }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
+    {% comment %}
+      <div class="util-menu">
+        <ul class="list-util">
+          {% for block in section.blocks %}
+            {% if block.type="utilmenu" %}
+              <li class="util-item">
+                <a class="link" href="">dddd</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endcomment %}
   </div>
 
   <div class="header-bottom">
     <div class="wrap-header-nav">
       <h1>all menu</h1>
       <div class="all-menu">
-        {% for link in section.settings.navigation.links %}
-          <li class="nav-item">
-            <a class="link" href="{{link.url}}">{{ link.title }}</a>
-          </li>
-        {% endfor %}
+        <ul>
+          {% for link in section.settings.navigation.links %}
+            <li class="nav-item">
+              <a class="link" href="{{link.url}}">{{ link.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
       </div>
       <div class="gnb">
         <ul class="header-nav">
@@ -108,20 +112,6 @@
       "id": "navigation",
       "label": "Navigation menu",
       "default": "main-menu"
-    }
-  ],
-  "max_block": 3,
-  "blocks": [
-    {
-      "name": "Util menu",
-      "type": "navigation",
-      "settings": [
-        {
-          "id": "uitlMenu",
-          "type": "link_list",
-          "label": "Util menu"
-        }
-      ]
     }
   ]
 }
