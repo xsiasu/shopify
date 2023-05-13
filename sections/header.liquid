@@ -17,10 +17,12 @@
 
     <div class="util-menu">
       <ul class="list-util">
-        {% for link in section.settings.utilmenu.links %}
-          <li class="util-item">
-            <a class="link" href="{{link.url}}">{{ link.title }}</a>
-          </li>
+        {% for link in section.settings.blocks %}
+          {% if block.type="navigation" %}
+            <li class="util-item">
+              <a class="link" href="{{link.url}}">{{ link.title }}</a>
+            </li>
+          {% endif %}
         {% endfor %}
       </ul>
     </div>
@@ -98,6 +100,20 @@
       "id": "navigation",
       "label": "Navigation menu",
       "default": "main-menu"
+    }
+  ],
+  "max_block": 3,
+  "blocks": [
+    {
+      "name": "Util menu",
+      "type": "navigation",
+      "settings": [
+        {
+          "id": "uitlMenu",
+          "type": "link_list",
+          "label": "Util menu"
+        }
+      ]
     }
   ]
 }
