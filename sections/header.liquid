@@ -18,8 +18,10 @@
 
   <div class="header-bottom">
     <div class="wrap-header-nav">
-      <h1 class="btn-cate">カテゴリー</h1>
       <div class="block-cate">
+        <div class="title-area">
+          <h1 class="btn-cate"><span></span>カテゴリー</h1>
+        </div>
         <ul class="list-cate">
           {% for link in section.settings.navigation.links %}
             <li class="cate-item">
@@ -30,6 +32,11 @@
       </div>
 
       <div class="block-gnb">
+        {% comment %}
+          <div class="tit-area">
+            <h1>gnb</h1>
+          </div>
+        {% endcomment %}
         <ul class="list-nav">
           {% for link in section.settings.navigation.links %}
             <li class="nav-item">
@@ -49,6 +56,11 @@
       </div>
 
       <div class="block-side-menu">
+        {% if link.title == 'Cart' %}
+          <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
+        {% else %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endif %}
         <ul>
           {% for block in section.blocks %}
             {% if block.type == 'utilmenu' %}
@@ -64,6 +76,7 @@
     </div>
   </div>
 </div>
+<div class="announce-bar"></div>
 <div class="header-nav-overlay"></div>
 
 <script>
@@ -85,7 +98,17 @@
     });
   }
 
+  function allCateMenu() {
+    const btnCate = document.querySelector('.btn-cate');
+    const listCate = document.querySelector('.list-cate');
+    btnCate.addEventListener('click', () => {
+      console.log('this', this);
+      listCate.classList.toggle('active');
+    });
+  }
+
   hamburgerMenu();
+  allCateMenu();
 </script>
 
 {% schema %}
