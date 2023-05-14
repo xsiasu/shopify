@@ -21,17 +21,22 @@
       <div class="gnb">
         <div class="left">
           <div class="cate">
-            <div class="title-area">
-              <h1 class="btn-cate"><span></span>カテゴリー</h1>
-            </div>
-
-            <ul class="list-cate">
-              {% for link in section.settings.navigation.links %}
-                <li class="cate-item">
-                  <a class="link" href="{{link.url}}">{{ link.title }}</a>
-                </li>
+            <button class="btn-cate"><span></span>カテゴリー</button>
+            <div>
+              {% for link in section.settings.allmenu.links %}
+                ddd
+                {% comment %}
+                  <div class="title-area">
+                    <h1 class="btn-cate"><span></span></h1>
+                  </div>
+                  <ul class="list-cate">
+                    <li class="cate-item">
+                      <a class="link" href="{{link.url}}">{{ link.title }}</a>
+                    </li>
+                  </ul>
+                {% endcomment %}
               {% endfor %}
-            </ul>
+            </div>
           </div>
           <ul class="list-nav">
             {% for link in section.settings.navigation.links %}
@@ -133,6 +138,12 @@
       "id": "navigation",
       "label": "Navigation menu",
       "default": "main-menu"
+    },
+    {
+      "type": "all_list",
+      "id": "allmenu",
+      "label": "All menu",
+      "default": "all-menu"
     }
   ],
   "max_blocks": 5,
