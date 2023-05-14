@@ -18,60 +18,57 @@
 
   <div class="header-bottom">
     <div class="wrap-header-nav">
-      <div class="block-cate">
-        <div class="title-area">
-          <h1 class="btn-cate"><span></span>カテゴリー</h1>
-        </div>
-        <ul class="list-cate">
-          {% for link in section.settings.navigation.links %}
-            <li class="cate-item">
-              <a class="link" href="{{link.url}}">{{ link.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
+      <div class="gnb">
+        <div class="left">
+          <div class="cate">
+            <div class="title-area">
+              <h1 class="btn-cate"><span></span>カテゴリー</h1>
+            </div>
 
-      <div class="block-gnb">
-        {% comment %}
-          <div class="tit-area">
-            <h1>gnb</h1>
-          </div>
-        {% endcomment %}
-        <ul class="list-nav">
-          {% for link in section.settings.navigation.links %}
-            <li class="nav-item">
-              <a class="link" href="{{link.url}}">{{ link.title }}</a>
-              {% if link.links != blank %}
-                <ul class="list-nav-sub">
-                  {% for child in link.links %}
-                    <li class="nav-item-sub">
-                      <a href="{{child.url}}">{{ child.title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <div class="block-side-menu">
-        {% if link.title == 'Cart' %}
-          <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
-        {% else %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endif %}
-        <ul>
-          {% for block in section.blocks %}
-            {% if block.type == 'utilmenu' %}
-              {% for link in block.settings.linklist.links %}
-                <li>
-                  <a href="{{link.url}}">{{ link.title }}</a>
+            <ul class="list-cate">
+              {% for link in section.settings.navigation.links %}
+                <li class="cate-item">
+                  <a class="link" href="{{link.url}}">{{ link.title }}</a>
                 </li>
               {% endfor %}
-            {% endif %}
-          {% endfor %}
-        </ul>
+            </ul>
+          </div>
+          <ul class="list-nav">
+            {% for link in section.settings.navigation.links %}
+              <li class="nav-item">
+                <a class="link" href="{{link.url}}">{{ link.title }}</a>
+                {% if link.links != blank %}
+                  <ul class="list-nav-sub">
+                    {% for child in link.links %}
+                      <li class="nav-item-sub">
+                        <a href="{{child.url}}">{{ child.title }}</a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="right">
+          {% if link.title == 'Cart' %}
+            <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
+          {% else %}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {% endif %}
+
+          <ul>
+            {% for block in section.blocks %}
+              {% if block.type == 'utilmenu' %}
+                {% for link in block.settings.linklist.links %}
+                  <li>
+                    <a href="{{link.url}}">{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>

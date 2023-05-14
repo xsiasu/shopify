@@ -144,6 +144,14 @@ header.nav-active .header-nav-overlay {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+    .gnb {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gnb .left {
+        display: flex;
+    }
 
     .header-top {
         width: 1200px;
@@ -163,15 +171,15 @@ header.nav-active .header-nav-overlay {
         cursor: pointer;
     }
 
-    .block-cate {}
+    .cate {}
 
-    .block-cate .list-cate {
+    .cate .list-cate {
         background: #fff;
         display: none;
         width: 100%;
     }
 
-    .block-cate .list-cate.active {
+    .cate .list-cate.active {
         display: block;
         position: absolute;
         background: #fff;
@@ -181,14 +189,12 @@ header.nav-active .header-nav-overlay {
     }
 
     .wrap-header-nav {
-        display: flex;
         position: initial;
         background: transparent;
         padding: 0;
         transform: translateX(0);
         transition: none;
         max-width: none;
-        justify-content: center;
 
     }
 
