@@ -21,27 +21,39 @@
       <div class="gnb">
         <div class="left">
           <div class="cate">
-            <button class="btn-cate"><span></span>カテゴリー</button>
-            <div>
-              {% for link in section.settings.allmenu.links %}
-                ddd
-                {% comment %}
-                  <div class="title-area">
-                    <h1 class="btn-cate"><span></span></h1>
-                  </div>
-                  <ul class="list-cate">
-                    <li class="cate-item">
-                      <a class="link" href="{{link.url}}">{{ link.title }}</a>
-                    </li>
-                  </ul>
-                {% endcomment %}
-              {% endfor %}
+            <button class="btn-cate">
+              <span class="icon-hamburger">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </span>
+
+              <span class="txt-menu">カテゴリー</span>
+            </button>
+            <div class="wrap-allmenu">
+              <div class="title-area">
+                <h1 class="btn-cate">
+                  <span>{{ allMenu.title }}</span>
+                </h1>
+              </div>
+
+              <ul class="list-cate">
+                {% for link in section.settings.allMenu.links %}
+                  <li class="cate-item">
+                    <a class="link" href="{{link.url}}"
+                      ><span>{{ link.title }}</span></a
+                    >
+                  </li>
+                {% endfor %}
+              </ul>
             </div>
           </div>
           <ul class="list-nav">
             {% for link in section.settings.navigation.links %}
               <li class="nav-item">
-                <a class="link" href="{{link.url}}">{{ link.title }}</a>
+                <a class="link" href="{{link.url}}"
+                  ><span>{{ link.title }}</span></a
+                >
                 {% if link.links != blank %}
                   <ul class="list-nav-sub">
                     {% for child in link.links %}
@@ -102,15 +114,27 @@
 
   function allCateMenu() {
     const btnCate = document.querySelector('.btn-cate');
-    const listCate = document.querySelector('.list-cate');
+    const listCate = document.querySelector('.wrap-allmenu');
     btnCate.addEventListener('click', () => {
-      console.log('this', this);
       listCate.classList.toggle('active');
+    });
+  }
+  function txtCreyongHover() {
+    const cateItem = document.querySelector('.cate-item');
+    const navItem = document.querySelector('.nav-item');
+    navItem.addEventListener('mouseover', (e) => {
+      e.preventDefault();
+      this.classList.toggle('on');
+    });
+    navItem.addEventListener('mouseleave', (e) => {
+      e.preventDefault();
+      this.classList.remove('on');
     });
   }
 
   hamburgerMenu();
   allCateMenu();
+  txtCreyongHover();
 </script>
 
 {% schema %}
@@ -140,10 +164,10 @@
       "default": "main-menu"
     },
     {
-      "type": "all_list",
-      "id": "allmenu",
+      "type": "link_list",
+      "id": "allMenu",
       "label": "All menu",
-      "default": "all-menu"
+      "default": "main-menu"
     }
   ],
   "max_blocks": 5,
