@@ -1,3 +1,4 @@
+{% assign main_menu = linklists['all-menu'] %}
 <div class="width">
   <div class="header-top">
     <div class="logo-area">
@@ -30,22 +31,35 @@
 
               <span class="txt-menu">カテゴリー</span>
             </button>
-            <div class="wrap-allmenu">
-              <div class="title-area">
-                <h1 class="btn-cate">
-                  <span>{{ allMenu.title }}</span>
-                </h1>
+            <div class="wrap-gnb-container">
+              <div class="wrap-gnb-inner-container">
+                <div class="col">
+                  <div class="tit-cate-area">
+                    <h1 class="txt-tit">
+                      {{ main_menu.title }}
+                    </h1>
+                  </div>
+                  <ul class="list-cate">
+                    {% for link in section.settings.allMenu.links %}
+                      <li class="cate-item">
+                        <a class="link" href="{{link.url}}"
+                          ><span>{{ link.title }}</span></a
+                        >
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="col">
+                  <div class="tit-cate-area">
+                    <h1 class="txt-tit">トレンドキーワード</h1>
+                  </div>
+                  <ul class="list-cate">
+                    <li>ヴィーガン</li>
+                  </ul>
+                </div>
+                <div class="col">img1</div>
+                <div class="col">img2-+</div>
               </div>
-
-              <ul class="list-cate">
-                {% for link in section.settings.allMenu.links %}
-                  <li class="cate-item">
-                    <a class="link" href="{{link.url}}"
-                      ><span>{{ link.title }}</span></a
-                    >
-                  </li>
-                {% endfor %}
-              </ul>
             </div>
           </div>
           <ul class="list-nav">
@@ -114,7 +128,7 @@
 
   function allCateMenu() {
     const btnCate = document.querySelector('.btn-cate');
-    const listCate = document.querySelector('.wrap-allmenu');
+    const listCate = document.querySelector('.wrap-gnb-container');
     btnCate.addEventListener('click', () => {
       listCate.classList.toggle('active');
     });
