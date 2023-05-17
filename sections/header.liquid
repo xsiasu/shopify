@@ -60,7 +60,7 @@
                 <div class="col">
                   {% for block in section.blocks %}
                     {% if block.type == 'image' %}
-                      <span>ddd</span>
+                      <img src="{{block.settings.image | img_url: 'master'}}">
                     {% endif %}
                   {% endfor %}
                 </div>
