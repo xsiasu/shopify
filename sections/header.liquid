@@ -57,7 +57,13 @@
                     <li>ヴィーガン</li>
                   </ul>
                 </div>
-                <div class="col">img1</div>
+                <div class="col">
+                  {% for block in section.blocks %}
+                    {% if block.type == 'image' %}
+                      <span>ddd</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
                 <div class="col">img2-+</div>
               </div>
             </div>
@@ -194,6 +200,47 @@
           "id": "linklist",
           "type": "link_list",
           "label": "Util menu"
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 50,
+          "max": 550,
+          "step": 5,
+          "unit": "px",
+          "label": "Image width",
+          "default": 100
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "Image alignment on large screen",
+          "options": [
+            {
+              "value": "",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
         }
       ]
     }
