@@ -60,7 +60,14 @@
                 <div class="col">
                   {% for block in section.blocks %}
                     {% if block.type == 'image' %}
-                      <img src="{{block.settings.image | img_url: 'master'}}">
+                      <a href="" style="display:block;max-width: min(100%, {{ block.settings.image_width }}px);">
+                        <img
+                          loading="lazy"
+                          src="{{block.settings.image | img_url: 'master'}}"
+                          alt=""
+                          width="100%"
+                        >
+                      </a>
                     {% endif %}
                   {% endfor %}
                 </div>
