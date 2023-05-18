@@ -183,15 +183,30 @@
           "d62533dc-ab16-4811-8dc5-7eb14e6d8f54"
         ],
         "settings": {
-          "copyright": "@2023 copyright reserved"
+          "copyright": "@2023 copyright reserved",
+          "heading": ""
         }
       },
       "header": {
         "type": "header",
+        "blocks": {
+          "389e0ff2-bfc9-49e6-8013-9c2599240c3c": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/8b4199d5-b7a4-4c66-bcf4-4d5d95f2bc17.jpg",
+              "image_width": 200,
+              "alignment": "center"
+            }
+          }
+        },
+        "block_order": [
+          "389e0ff2-bfc9-49e6-8013-9c2599240c3c"
+        ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo.png",
           "padding": 24,
-          "navigation": "main-menu"
+          "navigation": "main-menu",
+          "allMenu": "main-menu"
         }
       }
     },
