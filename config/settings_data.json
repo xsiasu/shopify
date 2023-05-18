@@ -206,7 +206,7 @@
           "logo": "shopify:\/\/shop_images\/logo.png",
           "padding": 24,
           "navigation": "main-menu",
-          "allMenu": "main-menu"
+          "allMenu": "all-menu"
         }
       }
     },
