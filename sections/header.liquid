@@ -1,5 +1,6 @@
 {% assign main_menu = linklists['all-menu'] %}
 <div class="width">
+  {% comment %} header top [logo, hamburger, uitl menu] {% endcomment %}
   <div class="header-top">
     <div class="logo-area">
       <a href="/" class="logo"
@@ -15,8 +16,23 @@
       <span class="line"></span>
       <span class="line"></span>
     </button>
-  </div>
 
+    <div class="">
+      <ul class="list-util-menu">
+        {% for link in section.settings.utilMenu.links %}
+          <li class="util-item">
+            {% if link.title == 'Cart' %}
+              <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
+
+            {% else %}
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% comment %} header bottom [all catetory, main menu, side menu] {% endcomment %}
   <div class="header-bottom">
     <div class="wrap-header-nav">
       <div class="gnb">
@@ -111,25 +127,7 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="right">
-          {% if link.title == 'Cart' %}
-            <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
-          {% else %}
-            <a href="{{ link.url }}">{{ link.title }}</a>
-          {% endif %}
-
-          <ul>
-            {% for block in section.blocks %}
-              {% if block.type == 'utilmenu' %}
-                {% for link in block.settings.linklist.links %}
-                  <li>
-                    <a href="{{link.url}}">{{ link.title }}</a>
-                  </li>
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
+        <div class="right"></div>
       </div>
     </div>
   </div>
@@ -260,6 +258,18 @@
       "type": "link_list",
       "id": "navigation",
       "label": "Navigation menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "utilMenu",
+      "label": "Util menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "link_list",
+      "id": "sideMenu",
+      "label": "Side menu",
       "default": "main-menu"
     },
     {
