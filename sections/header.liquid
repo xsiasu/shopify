@@ -60,7 +60,7 @@
                 <div class="col">
                   {% for block in section.blocks %}
                     {% if block.type == 'image' %}
-                      <a href="" style="display:block;max-width: min(100%, {{ block.settings.image_width }}px);">
+                      <a href="" style="display:block;max-width: min(100%, {{ block.settings.banner01_width }}px);">
                         <img
                           loading="lazy"
                           src="{{block.settings.image | img_url: 'master'}}"
@@ -72,12 +72,12 @@
                   {% endfor %}
                 </div>
                 <div class="col">
-                  <a hrf="">
+                  <a hrf="" style="display:block;max-width: min(100%, {{ block.settings.banner02_width }}px);">
                     <img src="{{ section.settings.banner01 | img_url: 'master' }}">
                   </a>
                 </div>
                 <div class="col">
-                  <a hrf="">
+                  <a hrf="" style="display:block;max-width: min(100%, {{ block.settings.image_width }}px);">
                     <img src="{{ section.settings.banner02 | img_url: 'master' }}">
                   </a>
                 </div>
@@ -193,6 +193,26 @@
       "type": "image_picker",
       "id": "banner02",
       "label": "banner 02"
+    },
+    {
+      "type": "range",
+      "id": "banner01_width",
+      "label": "Banner01 width",
+      "default": 200,
+      "min": 50,
+      "max": 550,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "banner02_width",
+      "label": "Banner01 width",
+      "default": 200,
+      "min": 50,
+      "max": 550,
+      "step": 5,
+      "unit": "px"
     },
     {
       "type": "range",
