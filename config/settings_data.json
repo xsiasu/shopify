@@ -206,7 +206,8 @@
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo.png",
           "banner01": "shopify:\/\/shop_images\/35cb3708-0dad-4520-80f9-bdffe08d3ae4.jpg",
-          "padding": 24,
+          "banner02": "shopify:\/\/shop_images\/8b4199d5-b7a4-4c66-bcf4-4d5d95f2bc17.jpg",
+          "padding": 61,
           "navigation": "main-menu",
           "allMenu": "all-menu"
         }
