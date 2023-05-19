@@ -22,13 +22,22 @@
         {% for link in section.settings.utilMenu.links %}
           <li class="util-item">
             {% if link.title == 'ログイン' %}
-              <a href="{{ link.url }}"><i class="bi bi-person"></i>{{ link.title }}</a>
+              <a class="link" href="{{ link.url }}">
+                <i class="bi bi-person"></i>
+                <span class="txt">{{ link.title }}</span></a
+              >
             {% elsif link.title == 'カート' %}
-              <a href="{{ link.url }}"><i class="bi bi-cart"></i>{{ link.title }}</a>
+              <a class="link" href="{{ link.url }}"
+                ><i class="bi bi-cart"></i><span class="txt">{{ link.title }}</span></a
+              >
             {% elsif link.title == 'ヘルプ' %}
-              <a href="{{ link.url }}"><i class="bi bi-headset"></i>{{ link.title }}</a>
+              <a class="link" href="{{ link.url }}"
+                ><i class="bi bi-headset"></i><span class="txt">{{ link.title }}</span></a
+              >
             {% else %}
-              <a href="{{ link.url }}">{{ link.title }}</a>
+              <a class="link" href="{{ link.url }}"
+                ><span class="txt">{{ link.title }}</span></a
+              >
             {% endif %}
           </li>
         {% endfor %}
