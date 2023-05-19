@@ -18,12 +18,15 @@
     </button>
 
     <div class="">
-      <ul class="list-util-menu">
+      <ul class="list-util">
         {% for link in section.settings.utilMenu.links %}
           <li class="util-item">
-            {% if link.title == 'Cart' %}
-              <a href="{{ link.url }}"><i class="fas fa-shopping-cart"></i>{{ link.title }}</a>
-
+            {% if link.title == 'ログイン' %}
+              <a href="{{ link.url }}"><i class="bi bi-person"></i>{{ link.title }}</a>
+            {% elsif link.title == 'カート' %}
+              <a href="{{ link.url }}"><i class="bi bi-cart"></i>{{ link.title }}</a>
+            {% elsif link.title == 'ヘルプ' %}
+              <a href="{{ link.url }}"><i class="bi bi-headset"></i>{{ link.title }}</a>
             {% else %}
               <a href="{{ link.url }}">{{ link.title }}</a>
             {% endif %}
