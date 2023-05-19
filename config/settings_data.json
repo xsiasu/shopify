@@ -207,7 +207,9 @@
           "logo": "shopify:\/\/shop_images\/logo.png",
           "banner01": "shopify:\/\/shop_images\/35cb3708-0dad-4520-80f9-bdffe08d3ae4.jpg",
           "banner02": "shopify:\/\/shop_images\/8b4199d5-b7a4-4c66-bcf4-4d5d95f2bc17.jpg",
-          "padding": 61,
+          "banner01_width": 165,
+          "banner02_width": 200,
+          "padding": 19,
           "navigation": "main-menu",
           "allMenu": "all-menu"
         }
