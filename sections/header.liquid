@@ -72,13 +72,21 @@
                   {% endfor %}
                 </div>
                 <div class="col">
-                  <a hrf="" style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);">
+                  <a
+                    hrf="{{section.settings.banner01_link}}"
+                    style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
+                  >
                     <img src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
+                    <p>{{ section.settings.banner01_title }}</p>
                   </a>
                 </div>
                 <div class="col">
-                  <a hrf="" style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);">
+                  <a
+                    hrf="{{section.settings.banner02_link}}"
+                    style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
+                  >
                     <img src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
+                    <p>{{ section.settings.banner02_title }}</p>
                   </a>
                 </div>
               </div>
@@ -190,6 +198,18 @@
       "label": "banner 01"
     },
     {
+      "type": "text",
+      "id": "banner01_link",
+      "label": "Banner01 link",
+      "default": "Quick links"
+    },
+    {
+      "type": "text",
+      "id": "banner01_title",
+      "label": "Banner01 title",
+      "default": "banner 01"
+    },
+    {
       "type": "range",
       "id": "banner01_width",
       "label": "Banner01 width",
@@ -199,10 +219,23 @@
       "step": 5,
       "unit": "px"
     },
+
     {
       "type": "image_picker",
       "id": "banner02",
       "label": "banner 02"
+    },
+    {
+      "type": "text",
+      "id": "banner02_link",
+      "label": "Banner02 link",
+      "default": "Quick links"
+    },
+    {
+      "type": "text",
+      "id": "banner02_title",
+      "label": "Banner02 title",
+      "default": "title"
     },
     {
       "type": "range",
