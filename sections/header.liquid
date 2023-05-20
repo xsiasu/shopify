@@ -11,28 +11,44 @@
           width="165"
       ></a>
     </div>
+
+    <form action="{{ routes.search_url }}">
+      <input
+        type="text"
+        placeholder="Search"
+        name="q"
+        value="{{ search.terms | escape }}"
+      >
+      <input type="hidden" name="type" value="product,page">
+      <input type="hidden" name="options[unavailable_products]" value="hide">
+      <input type="hidden" name="options[prefix]" value="last">
+      <input type="submit" value="Search">
+    </form>
+
     <button class="header-hamburger">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </button>
 
-    <div class="">
+    <div class="util-area">
       <ul class="list-util">
         {% for link in section.settings.utilMenu.links %}
           <li class="util-item">
             {% if link.title == 'ログイン' %}
               <a class="link" href="{{ link.url }}">
-                <i class="bi bi-person"></i>
+                <i>{%- render 'icon_person' -%}</i>
                 <span class="txt">{{ link.title }}</span></a
               >
             {% elsif link.title == 'カート' %}
-              <a class="link" href="{{ link.url }}"
-                ><i class="bi bi-cart"></i><span class="txt">{{ link.title }}</span></a
+              <a class="link" href="{{ link.url }}">
+                <i>{%- render 'icon_cart' -%}</i>
+                <span class="txt">{{ link.title }}</span></a
               >
             {% elsif link.title == 'ヘルプ' %}
-              <a class="link" href="{{ link.url }}"
-                ><i class="bi bi-headset"></i><span class="txt">{{ link.title }}</span></a
+              <a class="link" href="{{ link.url }}">
+                <i>{%- render 'icon_headset' -%}</i>
+                <span class="txt">{{ link.title }}</span></a
               >
             {% else %}
               <a class="link" href="{{ link.url }}"
