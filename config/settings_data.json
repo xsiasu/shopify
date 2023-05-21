@@ -205,7 +205,9 @@
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo.png",
+          "logo_width": 250,
           "banner01": "shopify:\/\/shop_images\/35cb3708-0dad-4520-80f9-bdffe08d3ae4.jpg",
+          "trend_01": "",
           "banner01_link": "Quick links",
           "banner01_title": "banner 01",
           "banner01_width": 130,
@@ -216,7 +218,7 @@
           "padding": 19,
           "navigation": "main-menu",
           "utilMenu": "util-menu",
-          "sideMenu": "main-menu",
+          "sideMenu": "side-menu",
           "allMenu": "all-menu"
         }
       }
