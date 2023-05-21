@@ -2,65 +2,75 @@
 <div class="width">
   {% comment %} header top [logo, hamburger, uitl menu] {% endcomment %}
   <div class="header-top">
-    <div class="logo-area">
-      <a href="/" class="logo"
-        ><img
-          src="{{ section.settings.logo | img_url: 'master' }}"
-          alt="{{site.name}}"
+    <div class="cus-col">
+      <div class="logo-area">
+        <a href="/" class="logo"
+          ><img
+            src="{{ section.settings.logo | img_url: 'master' }}"
+            alt="{{site.name}}"
+            width="{{ section.settings.logo_width }}"
+        ></a>
+      </div>
 
-          width="165"
-      ></a>
-    </div>
-    <div class="search-area">
-      <form action="{{ routes.search_url }}">
-        <input
-          type="text"
-          placeholder="Search"
-          name="q"
-          value="{{ search.terms | escape }}"
-        >
-        <input type="hidden" name="type" value="product,page">
-        <input type="hidden" name="options[unavailable_products]" value="hide">
-        <input type="hidden" name="options[prefix]" value="last">
-        <input type="submit" value="Search">
-      </form>
-    </div>
+      <div class="search-area">
+        <form action="{{ routes.search_url }}">
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="キーワード検索"
+              name="q"
+              value="{{ search.terms | escape }}"
+            >
 
+            <button class="btn-init btn-icon-search" type="button">
+              <i>{%- render 'icon_search' -%}</i>
+            </button>
+
+            <input type="hidden" name="type" value="product,page">
+            <input type="hidden" name="options[unavailable_products]" value="hide">
+            <input type="hidden" name="options[prefix]" value="last">
+          </div>
+        </form>
+      </div>
+    </div>
     <button class="header-hamburger">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
     </button>
-
-    <div class="util-area">
-      <ul class="list-util">
-        {% for link in section.settings.utilMenu.links %}
-          <li class="util-item">
-            {% if link.title == 'ログイン' %}
-              <a class="link" href="{{ link.url }}">
-                <i>{%- render 'icon_person' -%}</i>
-                <span class="txt">{{ link.title }}</span></a
-              >
-            {% elsif link.title == 'カート' %}
-              <a class="link" href="{{ link.url }}">
-                <i>{%- render 'icon_cart' -%}</i>
-                <span class="txt">{{ link.title }}</span></a
-              >
-            {% elsif link.title == 'ヘルプ' %}
-              <a class="link" href="{{ link.url }}">
-                <i>{%- render 'icon_headset' -%}</i>
-                <span class="txt">{{ link.title }}</span></a
-              >
-            {% else %}
-              <a class="link" href="{{ link.url }}"
-                ><span class="txt">{{ link.title }}</span></a
-              >
-            {% endif %}
-          </li>
-        {% endfor %}
-      </ul>
+    <div class="cus-col">
+      <div class="util-area">
+        <ul class="list-util">
+          {% for link in section.settings.utilMenu.links %}
+            <li class="util-item">
+              {% if link.title == 'ログイン' %}
+                <a class="link" href="{{ link.url }}">
+                  <i>{%- render 'icon_person' -%}</i>
+                  <span class="txt">{{ link.title }}</span></a
+                >
+              {% elsif link.title == 'カート' %}
+                <a class="link" href="{{ link.url }}">
+                  <i>{%- render 'icon_cart' -%}</i>
+                  <span class="txt">{{ link.title }}</span></a
+                >
+              {% elsif link.title == 'ヘルプ' %}
+                <a class="link" href="{{ link.url }}">
+                  <i>{%- render 'icon_headset' -%}</i>
+                  <span class="txt">{{ link.title }}</span></a
+                >
+              {% else %}
+                <a class="link" href="{{ link.url }}"
+                  ><span class="txt">{{ link.title }}</span></a
+                >
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
   </div>
+
   {% comment %} header bottom [all catetory, main menu, side menu] {% endcomment %}
   <div class="header-bottom">
     <div class="wrap-header-nav">
@@ -78,7 +88,7 @@
             </button>
             <div class="wrap-gnb-container">
               <div class="wrap-gnb-inner-container">
-                <div class="col">
+                <div class="cus-col">
                   <div class="tit-cate-area">
                     <h1 class="txt-tit">
                       {{ main_menu.title }}
@@ -94,7 +104,7 @@
                     {% endfor %}
                   </ul>
                 </div>
-                <div class="col">
+                <div class="cus-col">
                   <div class="tit-cate-area">
                     <h1 class="txt-tit">トレンドキーワード</h1>
                   </div>
@@ -102,7 +112,7 @@
                     <li>ヴィーガン</li>
                   </ul>
                 </div>
-                <div class="col">
+                <div class="cus-col">
                   {% for block in section.blocks %}
                     {% if block.type == 'image' %}
                       <a href="" style="display:block;max-width: min(100%, {{ block.settings.banner01_width }}px);">
@@ -116,7 +126,7 @@
                     {% endif %}
                   {% endfor %}
                 </div>
-                <div class="col">
+                <div class="cus-col">
                   <a
                     hrf="{{section.settings.banner01_link}}"
                     style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
@@ -125,7 +135,7 @@
                     <p>{{ section.settings.banner01_title }}</p>
                   </a>
                 </div>
-                <div class="col">
+                <div class="cus-col">
                   <a
                     hrf="{{section.settings.banner02_link}}"
                     style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
@@ -218,6 +228,16 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo 160*250"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "default": 250,
+      "min": 50,
+      "max": 250,
+      "step": 5,
+      "unit": "px"
     },
     {
       "type": "image_picker",
