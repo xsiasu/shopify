@@ -56,7 +56,7 @@
                 >
               {% elsif link.title == 'ヘルプ' %}
                 <a class="link" href="{{ link.url }}">
-                  <i>{%- render 'icon_headset' -%}</i>
+                  <i>{%- render 'icon_headphones' -%}</i>
                   <span class="txt">{{ link.title }}</span></a
                 >
               {% else %}
@@ -88,7 +88,7 @@
             </button>
             <div class="wrap-gnb-container">
               <div class="wrap-gnb-inner-container">
-                <div class="cus-col">
+                <div class="cus-col menu">
                   <div class="tit-cate-area">
                     <h1 class="txt-tit">
                       {{ main_menu.title }}
@@ -104,43 +104,27 @@
                     {% endfor %}
                   </ul>
                 </div>
-                <div class="cus-col">
-                  <div class="tit-cate-area">
+                <div class="cus-col trend">
+                  <div class="tit-trend-area">
                     <h1 class="txt-tit">トレンドキーワード</h1>
                   </div>
-                  <ul class="list-cate">
-                    <li>ヴィーガン</li>
+                  <ul class="list-trend">
+                    <li>{{ section.settings.trend_01 }}</li>
                   </ul>
                 </div>
-                <div class="cus-col">
-                  {% for block in section.blocks %}
-                    {% if block.type == 'image' %}
-                      <a href="" style="display:block;max-width: min(100%, {{ block.settings.banner01_width }}px);">
-                        <img
-                          loading="lazy"
-                          src="{{block.settings.image | img_url: 'master'}}"
-                          alt=""
-                          width="100%"
-                        >
-                      </a>
-                    {% endif %}
-                  {% endfor %}
-                </div>
-                <div class="cus-col">
+                <div class="cus-col banner">
                   <a
                     hrf="{{section.settings.banner01_link}}"
                     style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
                   >
-                    <img src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
+                    <img loading="lazy" src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
                     <p>{{ section.settings.banner01_title }}</p>
                   </a>
-                </div>
-                <div class="cus-col">
                   <a
                     hrf="{{section.settings.banner02_link}}"
                     style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
                   >
-                    <img src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
+                    <img loading="lazy" src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
                     <p>{{ section.settings.banner02_title }}</p>
                   </a>
                 </div>
@@ -166,7 +150,17 @@
             {% endfor %}
           </ul>
         </div>
-        <div class="right"></div>
+        <div class="right">
+          <ul class="list-nav">
+            {% for link in section.settings.sideMenu.links %}
+              <li class="nav-item">
+                <a class="link" href="{{link.url}}"
+                  ><span>{{ link.title }}</span></a
+                >
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -244,6 +238,13 @@
       "id": "banner01",
       "label": "banner 01"
     },
+
+    {
+      "id": "trend_01",
+      "type": "text",
+      "label": "kyword 01"
+    },
+
     {
       "type": "text",
       "id": "banner01_link",
