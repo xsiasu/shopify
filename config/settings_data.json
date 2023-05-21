@@ -189,20 +189,6 @@
       },
       "header": {
         "type": "header",
-        "blocks": {
-          "950bd6db-3f5d-40bf-af0f-447f93f03c35": {
-            "type": "image",
-            "disabled": true,
-            "settings": {
-              "image": "shopify:\/\/shop_images\/35cb3708-0dad-4520-80f9-bdffe08d3ae4.jpg",
-              "image_width": 200,
-              "alignment": "center"
-            }
-          }
-        },
-        "block_order": [
-          "950bd6db-3f5d-40bf-af0f-447f93f03c35"
-        ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/logo.png",
           "logo_width": 250,
