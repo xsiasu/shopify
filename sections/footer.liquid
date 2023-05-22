@@ -1,10 +1,10 @@
 <footer class="footer">
-  <div class="width">
-    <div class="footer-top">
+  <div class="container">
+    <div class="footer-top row">
       {% for block in section.blocks %}
         {% if block.type == 'navigation' %}
-          <div class="navigation-block">
-            <h2 class="title">{{ block.settings.linklist.title }}</h2>
+          <div class="col">
+            <h3 class="title">{{ block.settings.linklist.title }}</h3>
             <ul class="list-sub">
               {% for link in block.settings.linklist.links %}
                 <li>
@@ -15,8 +15,8 @@
           </div>
 
         {% elsif block.type == 'newsletter' %}
-          <div class="newsletter-block">
-            <h2 class="title">{{ block.settings.heading }}</h2>
+          <div class="col">
+            <h3 class="title">{{ block.settings.heading }}</h3>
             <p>{{ block.settings.text }}</p>
 
             {% form 'customer', id: 'footer-newsletter' %}
@@ -33,24 +33,18 @@
             {% endform %}
           </div>
         {% elsif block.type == 'text' %}
-          <div class="info-block">
-            <h2 class="title">{{ block.settings.heading }}</h2>
+          <div class="col">
+            <h3 class="title">{{ block.settings.heading }}</h3>
             <p>{{ block.settings.text }}</p>
           </div>
         {% endif %}
       {% endfor %}
     </div>
-    <div class="footer-bottom">
-      <p class="title">{{ section.settings.copyright }}</p>
-      <p class="descrip">{{ section.settings.heading }}</p>
-
-      {% comment %}
-        <div class="footer-cards">
-          <ul>
-            <li>{% render 'icon-account' %}</li>
-          </ul>
-        </div>
-      {% endcomment %}
+    <div class="footer-bottom row">
+      <div class="col">
+        <p class="title">{{ section.settings.copyright }}</p>
+        <p class="descrip">{{ section.settings.heading }}</p>
+      </div>
     </div>
   </div>
 </footer>
