@@ -173,18 +173,21 @@ header.nav-active .header-nav-overlay {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+    .trend-item a,
     .cate-item a,
     .nav-item a {
         position: relative;
     }
 
+    .trend-item a span,
     .cate-item a span,
     .nav-item a span {
         opacity: 0.99;
     }
 
     .cate-item a:before,
-    .nav-item a:before {
+    .nav-item a:before,
+    .trend-item a:before {
         content: '';
         position: absolute;
         left: -2px;
@@ -195,6 +198,7 @@ header.nav-active .header-nav-overlay {
         transition: width 0.25s ease-out;
     }
 
+    .trend-item.on a:before,
     .cate-item.on a:before,
     .nav-item.on a:before {
         width: calc(100% + 3px);
@@ -325,6 +329,11 @@ header.nav-active .header-nav-overlay {
         margin-top: 12px;
     }
 
+    .cus-col.trend .list-trend li a {
+        font-size: 0.875rem;
+        text-decoration: none;
+    }
+
     .cus-col.menu,
     .cus-col.trend {
         margin-right: 25px;
@@ -349,7 +358,6 @@ header.nav-active .header-nav-overlay {
         font-size: .875rem;
         letter-spacing: 0;
         font-weight: 700;
-
     }
 
     .tit-cate-area .txt-tit:after,

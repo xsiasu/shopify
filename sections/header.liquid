@@ -109,11 +109,31 @@
                     {% endif %}
                   </div>
                   <ul class="list-trend">
-                    <li>{{ section.settings.trend_01 }}</li>
-                    <li>{{ section.settings.trend_02 }}</li>
-                    <li>{{ section.settings.trend_03 }}</li>
-                    <li>{{ section.settings.trend_04 }}</li>
-                    <li>{{ section.settings.trend_05 }}</li>
+                    <li class="trend-item">
+                      <a href=""
+                        ><span>{{ section.settings.trend_01 }}</span></a
+                      >
+                    </li>
+                    <li class="trend-item">
+                      <a href=""
+                        ><span>{{ section.settings.trend_02 }}</span></a
+                      >
+                    </li>
+                    <li class="trend-item">
+                      <a href=""
+                        ><span>{{ section.settings.trend_03 }}</span></a
+                      >
+                    </li>
+                    <li class="trend-item">
+                      <a href=""
+                        ><span>{{ section.settings.trend_04 }}</span></a
+                      >
+                    </li>
+                    <li class="trend-item">
+                      <a href=""
+                        ><span>{{ section.settings.trend_05 }}</span></a
+                      >
+                    </li>
                   </ul>
                 </div>
                 <div class="cus-col banner">
@@ -201,22 +221,23 @@
       listCate.classList.toggle('active');
     });
   }
-  function txtCreyongHover() {
-    const cateItem = document.querySelector('.cate-item');
-    const navItem = document.querySelector('.nav-item');
-    navItem.addEventListener('mouseover', (e) => {
-      e.preventDefault();
-      this.classList.toggle('on');
-    });
-    navItem.addEventListener('mouseleave', (e) => {
-      e.preventDefault();
-      this.classList.remove('on');
+  function addClassOnHover(elementSelectors, className) {
+    const elements = document.querySelectorAll(elementSelectors);
+
+    elements.forEach(function (element) {
+      element.addEventListener('mouseover', function () {
+        this.classList.add(className);
+      });
+
+      element.addEventListener('mouseleave', function () {
+        this.classList.remove(className);
+      });
     });
   }
+  addClassOnHover(['.nav-item', '.cate-item', '.trend-item'], 'on');
 
   hamburgerMenu();
   allCateMenu();
-  txtCreyongHover();
 </script>
 
 {% schema %}
