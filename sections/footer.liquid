@@ -4,7 +4,7 @@
       {% for block in section.blocks %}
         {% if block.type == 'navigation' %}
           <div class="col">
-            <h3 class="title">{{ block.settings.linklist.title }}</h3>
+            <h3 class="h6 title">{{ block.settings.linklist.title }}</h3>
             <ul class="list-sub">
               {% for link in block.settings.linklist.links %}
                 <li>
@@ -16,7 +16,7 @@
 
         {% elsif block.type == 'newsletter' %}
           <div class="col">
-            <h3 class="title">{{ block.settings.heading }}</h3>
+            <h3 class="h6 title">{{ block.settings.heading }}</h3>
             <p>{{ block.settings.text }}</p>
 
             {% form 'customer', id: 'footer-newsletter' %}
@@ -34,7 +34,7 @@
           </div>
         {% elsif block.type == 'text' %}
           <div class="col">
-            <h3 class="title">{{ block.settings.heading }}</h3>
+            <h3 class="h6 title">{{ block.settings.heading }}</h3>
             <p>{{ block.settings.text }}</p>
           </div>
         {% endif %}

@@ -285,6 +285,7 @@ header.nav-active .header-nav-overlay {
     }
 
     .btn-cate .txt-menu {
+        position: relative;
         color: #141414;
         font-size: .9375rem;
         letter-spacing: 0;
@@ -292,6 +293,21 @@ header.nav-active .header-nav-overlay {
         margin-left: 5px;
     }
 
+    .btn-cate.on .txt-menu:before {
+        width: calc(100% + 3px);
+        background-image: linear-gradient(to bottom, #9bce26, #9bce26);
+    }
+
+    .btn-cate .txt-menu::before {
+        content: "";
+        position: absolute;
+        left: -2px;
+        bottom: 0;
+        width: 0;
+        height: 6px;
+        border-radius: 3px;
+        transition: width .25s ease-out;
+    }
 
 
     .btn-cate .icon-hamburger .line {
