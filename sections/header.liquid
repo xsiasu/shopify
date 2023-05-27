@@ -75,100 +75,101 @@
     <div class="wrap-header-nav">
       <div class="gnb">
         <div class="left">
-          <div class="cate">
-            <button class="btn-cate">
-              <span class="icon-hamburger">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-              </span>
-              <span class="txt-menu">
-                <span>カテゴリー</span>
-              </span>
-            </button>
-            <div class="wrap-gnb-container">
-              <div class="wrap-gnb-inner-container">
-                <div class="cus-col menu">
-                  <div class="tit-cate-area">
-                    <h1 class="txt-tit">
-                      {{ main_menu.title }}
-                    </h1>
+          {% comment %}
+            <div class="cate">
+              <button class="btn-cate">
+                <span class="icon-hamburger">
+                  <span class="line"></span>
+                  <span class="line"></span>
+                  <span class="line"></span>
+                </span>
+                <span class="txt-menu">
+                  <span>カテゴリー</span>
+                </span>
+              </button>
+              <div class="wrap-gnb-container">
+                <div class="wrap-gnb-inner-container">
+                  <div class="cus-col menu">
+                    <div class="tit-cate-area">
+                      <h1 class="txt-tit">
+                        {{ main_menu.title }}
+                      </h1>
+                    </div>
+                    <ul class="list-cate">
+                      {% for link in section.settings.allMenu.links %}
+                        <li class="cate-item">
+                          <a class="link" href="{{link.url}}"
+                            ><span>{{ link.title }}</span></a
+                          >
+                        </li>
+                      {% endfor %}
+                    </ul>
                   </div>
-                  <ul class="list-cate">
-                    {% for link in section.settings.allMenu.links %}
-                      <li class="cate-item">
-                        <a class="link" href="{{link.url}}"
-                          ><span>{{ link.title }}</span></a
+                  <div class="cus-col trend">
+                    <div class="tit-trend-area">
+                      {% if section.settings.tit_trend != black %}
+                        <h1 class="txt-tit">{{ section.settings.tit_trend }}</h1>
+                      {% endif %}
+                    </div>
+                    <ul class="list-trend">
+                      <li class="trend-item">
+                        <a href=""
+                          ><span>{{ section.settings.trend_01 }}</span></a
                         >
                       </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-                <div class="cus-col trend">
-                  <div class="tit-trend-area">
-                    {% if section.settings.tit_trend != black %}
-                      <h1 class="txt-tit">{{ section.settings.tit_trend }}</h1>
-                    {% endif %}
+                      <li class="trend-item">
+                        <a href=""
+                          ><span>{{ section.settings.trend_02 }}</span></a
+                        >
+                      </li>
+                      <li class="trend-item">
+                        <a href=""
+                          ><span>{{ section.settings.trend_03 }}</span></a
+                        >
+                      </li>
+                      <li class="trend-item">
+                        <a href=""
+                          ><span>{{ section.settings.trend_04 }}</span></a
+                        >
+                      </li>
+                      <li class="trend-item">
+                        <a href=""
+                          ><span>{{ section.settings.trend_05 }}</span></a
+                        >
+                      </li>
+                    </ul>
                   </div>
-                  <ul class="list-trend">
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_01 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_02 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_03 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_04 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_05 }}</span></a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div class="cus-col banner">
-                  <a
-                    class="link"
-                    hrf="{{section.settings.banner01_link}}"
-                    style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
-                  >
-                    <img loading="lazy" src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
-                    <p>{{ section.settings.banner01_title }}</p>
-                  </a>
+                  <div class="cus-col banner">
+                    <a
+                      class="link"
+                      hrf="{{section.settings.banner01_link}}"
+                      style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
+                    >
+                      <img loading="lazy" src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
+                      <p>{{ section.settings.banner01_title }}</p>
+                    </a>
 
-                  <a
-                    class="link"
-                    hrf="{{section.settings.banner02_link}}"
-                    style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
-                  >
-                    <img loading="lazy" src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
-                    <p>{{ section.settings.banner02_title }}</p>
-                  </a>
+                    <a
+                      class="link"
+                      hrf="{{section.settings.banner02_link}}"
+                      style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
+                    >
+                      <img loading="lazy" src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
+                      <p>{{ section.settings.banner02_title }}</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          {% endcomment %}
           <ul class="list-nav">
             {% for link in section.settings.navigation.links %}
-              <li class="nav-item">
+              <li class="nav-item gnb-item">
                 <a class="link" href="{{link.url}}"
                   ><span>{{ link.title }}</span></a
                 >
-
                 {% if link.links != blank %}
-                  <div class="wrap-list-nav-sub">
+                  <div class="wrap-list-nav-sub sub-menu" style="display:none">
                     <ul class="list-nav-sub">
                       {% for child in link.links %}
                         <li class="nav-item-sub">
@@ -235,6 +236,7 @@
       listCate.classList.toggle('active');
     });
   }
+
   function addClassOnHover(elementSelectors, className) {
     const elements = document.querySelectorAll(elementSelectors);
 
@@ -250,18 +252,27 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var dropdowns = document.querySelectorAll('.dropdown');
+    var gnbItems = document.querySelectorAll('.gnb-item');
 
-    dropdowns.forEach(function (dropdown) {
-      var button = dropdown.querySelector('.dropbtn');
-      var content = dropdown.querySelector('.dropdown-content');
+    gnbItems.forEach(function (item) {
+      var menuItem = item.querySelector('a');
+      var subMenu = item.querySelector('.sub-menu');
 
-      button.addEventListener('click', function () {
-        if (content.style.display === 'block') {
-          content.style.display = 'none';
-        } else {
-          content.style.display = 'block';
+      menuItem.addEventListener('mouseover', function () {
+        subMenu.style.display = 'block';
+      });
+
+      item.addEventListener('mouseout', function (event) {
+        // 이벤트 객체의 relatedTarget 속성을 사용하여 이벤트가 발생한 요소를 가져옴
+        var relatedTarget = event.relatedTarget;
+
+        // 마우스가 서브 메뉴로 이동한 경우에는 드롭다운 메뉴를 유지함
+        if (relatedTarget && (relatedTarget === subMenu || subMenu.contains(relatedTarget))) {
+          return;
         }
+
+        // 마우스가 메뉴 영역에서 벗어난 경우 드롭다운 메뉴를 숨김
+        subMenu.style.display = 'none';
       });
     });
   });
