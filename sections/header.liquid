@@ -236,6 +236,24 @@
       });
     });
   }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(function (dropdown) {
+      var button = dropdown.querySelector('.dropbtn');
+      var content = dropdown.querySelector('.dropdown-content');
+
+      button.addEventListener('click', function () {
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+  });
+
   addClassOnHover(['.nav-item', '.cate-item', '.trend-item', '.btn-cate'], 'on');
 
   hamburgerMenu();

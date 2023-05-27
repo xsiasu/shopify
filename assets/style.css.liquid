@@ -80,7 +80,7 @@ body.fixed {
     margin-top: 24px;
 }
 
-.list-nav .nav-item a {
+.list-nav .nav-item>a {
     font-size: 17px
 }
 
@@ -185,9 +185,9 @@ header.nav-active .header-nav-overlay {
         opacity: 0.99;
     }
 
-    .cate-item a:before,
-    .nav-item a:before,
-    .trend-item a:before {
+    .cate-item>a:before,
+    .nav-item>a:before,
+    .trend-item>a:before {
         content: '';
         position: absolute;
         left: -2px;
@@ -198,9 +198,9 @@ header.nav-active .header-nav-overlay {
         transition: width 0.25s ease-out;
     }
 
-    .trend-item.on a:before,
-    .cate-item.on a:before,
-    .nav-item.on a:before {
+    .trend-item.on>a:before,
+    .cate-item.on>a:before,
+    .nav-item.on>a:before {
         width: calc(100% + 3px);
         background-image: linear-gradient(to bottom, #9bce26, #9bce26);
     }
@@ -452,8 +452,9 @@ header.nav-active .header-nav-overlay {
 }
 
 .list-nav-sub {
-    display: none;
     position: absolute;
+
+
 
 }
 
