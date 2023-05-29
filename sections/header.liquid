@@ -1,5 +1,17 @@
 {% assign main_menu = linklists['all-menu'] %}
 <div class="width">
+  {% comment %}
+    {%- liquid
+      if section.settings.menu != blank
+        if section.settings.menu_type_desktop == 'dropdown'
+          render 'header-dropdown-menu'
+        elsif section.settings.menu_type_desktop != 'drawer'
+          render 'header-mega-menu'
+        endif
+      endif
+    %}
+  {% endcomment %}
+
   {% comment %} header top [logo, hamburger, uitl menu] {% endcomment %}
   <div class="header-top">
     <div class="cus-col">
@@ -33,7 +45,7 @@
         </form>
       </div>
     </div>
-    <button class="header-hamburger d-none d-sm-block d-md-none">
+    <button class="header-hamburger d-sm-block d-md-none">
       <span class="line"></span>
       <span class="line"></span>
       <span class="line"></span>
@@ -69,145 +81,9 @@
       </div>
     </div>
   </div>
-
-  {% comment %} header bottom [all catetory, main menu, side menu] {% endcomment %}
-  <div class="header-bottom">
-    <div class="wrap-header-nav">
-      <nav class="gnb">
-        <div class="left">
-          <div class="cate">
-            <button class="btn-cate">
-              <span class="icon-hamburger">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-              </span>
-              <span class="txt-menu">
-                <span>カテゴリー</span>
-              </span>
-            </button>
-            <div class="wrap-gnb-container">
-              <div class="wrap-gnb-inner-container">
-                <div class="cus-col menu">
-                  <div class="tit-cate-area">
-                    <h1 class="txt-tit">
-                      {{ main_menu.title }}
-                    </h1>
-                  </div>
-                  <ul class="list-cate">
-                    {% for link in section.settings.allMenu.links %}
-                      <li class="cate-item">
-                        <a class="link" href="{{link.url}}"
-                          ><span>{{ link.title }}</span></a
-                        >
-                      </li>
-                    {% endfor %}
-                  </ul>
-                </div>
-                <div class="cus-col trend">
-                  <div class="tit-trend-area">
-                    {% if section.settings.tit_trend != black %}
-                      <h1 class="txt-tit">{{ section.settings.tit_trend }}</h1>
-                    {% endif %}
-                  </div>
-                  <ul class="list-trend">
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_01 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_02 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_03 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_04 }}</span></a
-                      >
-                    </li>
-                    <li class="trend-item">
-                      <a href=""
-                        ><span>{{ section.settings.trend_05 }}</span></a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div class="cus-col banner">
-                  <a
-                    class="link"
-                    hrf="{{section.settings.banner01_link}}"
-                    style="display:block;max-width: min(100%, {{ section.settings.banner01_width }}px);"
-                  >
-                    <img loading="lazy" src="{{ section.settings.banner01 | img_url: 'master' }}" width="100%">
-                    <p>{{ section.settings.banner01_title }}</p>
-                  </a>
-
-                  <a
-                    class="link"
-                    hrf="{{section.settings.banner02_link}}"
-                    style="display:block;max-width: min(100%, {{ section.settings.banner02_width }}px);"
-                  >
-                    <img loading="lazy" src="{{ section.settings.banner02 | img_url: 'master' }}" width="100%">
-                    <p>{{ section.settings.banner02_title }}</p>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <ul class="list-nav">
-            {% for link in section.settings.navigation.links %}
-              <li class="nav-item gnb-item">
-                <a class="link" href="{{link.url}}"
-                  ><span>{{ link.title }}</span></a
-                >
-                {% if link.links != blank %}
-                  <div class="wrap-list-nav-sub sub-menu" style="display:none">
-                    <ul class="list-nav-sub">
-                      {% for childlink in link.links %}
-                        <li class="nav-item-sub">
-                          <div class="tit-sub-area">
-                            <a href="{{childlink.url}}" class="txt-tit">{{ childlink.title | escape }}</a>
-                          </div>
-                          <ul class="list-nav-grandchild list-unstyled">
-                            {% for grandchildlink in childlink.links %}
-                              <li class="nav-grandchild-item">
-                                <a class="link" href="{{grandchildlink.url}}"
-                                  ><span>{{ grandchildlink.title | escape }}</span></a
-                                >
-                              </li>
-                            {% endfor %}
-                          </ul>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="right">
-          <ul class="list-nav">
-            {% for link in section.settings.sideMenu.links %}
-              <li class="nav-item">
-                <a class="link" href="{{link.url}}"
-                  ><span>{{ link.title }}</span></a
-                >
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </div>
+  {%- render 'header-mega-menu' -%}
 </div>
+
 <div class="announce-bar"></div>
 <div class="header-nav-overlay"></div>
 
