@@ -11,7 +11,13 @@
 
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ 'footer.css' | asset_url | stylesheet_tag }}
-    {{ 'bootstrap.css' | asset_url | stylesheet_tag }}
+    {% comment %} {{ 'bootstrap.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+    {% comment %} {{ 'bootstrap5-3.css' | asset_url | stylesheet_tag }} {% endcomment %}
+
+    {{ 'bootstrap-reboot.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap.grid.css' | asset_url | stylesheet_tag }}
+    {{ 'bootstrap-utilities.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -20,10 +26,10 @@
 
     {% section 'header' %}
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-      {% comment %} {{ content_for_layout }} {% endcomment %}
+      {{ content_for_layout }}
     </main>
     {% comment %} {{ content_for_layout }} {% endcomment %}
-    <div style="height:500px"></div>
+    {% comment %} <div style="height:500px"></div> {% endcomment %}
     {% section 'footer' %}
   </body>
 </html>
