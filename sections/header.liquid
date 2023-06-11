@@ -67,7 +67,7 @@
                 >
               {% elsif link.title == 'ヘルプ' %}
                 <a class="link" href="{{ link.url }}">
-                  <i>{%- render 'icon_headphones' -%}</i>
+                  <i>{%- render 'icon_ear' -%}</i>
                   <span class="txt">{{ link.title }}</span></a
                 >
               {% else %}
@@ -81,10 +81,17 @@
       </div>
     </div>
   </div>
-  {%- render 'header-mega-menu' -%}
+  {%- render 'header-dropdown-menu' -%}
 </div>
 
-<div class="announce-bar"></div>
+<div class="announce-bar">
+  <div class="container">
+    <div class="row justify-content-start">
+      <a href="" class="col-4"><span class="txt">USD20以上ご購入の場合、日本内への配送料無料</span></a>
+      <a href="" class="col-4"><span class="txt">アプリで最大USD20割引をもらおう！</span></a>
+    </div>
+  </div>
+</div>
 <div class="header-nav-overlay"></div>
 
 <script>
