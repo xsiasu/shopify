@@ -27,6 +27,8 @@
         "button"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/71549795-af81-4526-8772-e165dff9c174.jpg",
+        "image_2": "shopify:\/\/shop_images\/478880f6-3be7-442d-8e59-10ee3651c557.jpg",
         "image_overlay_opacity": 40,
         "image_height": "large",
         "desktop_content_position": "bottom-center",
