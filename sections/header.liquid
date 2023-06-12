@@ -178,7 +178,7 @@
                   ><span>{{ link.title }}</span></a
                 >
                 {% if link.links != blank %}
-                  <div class="wrap-list-nav-sub sub-menu" style="display:blcok">
+                  <div class="wrap-list-nav-sub sub-menu" style="display:none">
                     <ul class="list-nav-sub">
                       {% for childlink in link.links %}
                         <li class="nav-item-sub">
@@ -293,8 +293,8 @@
         }
 
         // 마우스가 메뉴 영역에서 벗어난 경우 드롭다운 메뉴를 숨김
-        {% comment %} subMenu.style.display = 'none'; {% endcomment %}
-        subMenu.style.display = 'block';
+        subMenu.style.display = 'none';
+        {% comment %} subMenu.style.display = 'block'; {% endcomment %}
       });
     });
   });

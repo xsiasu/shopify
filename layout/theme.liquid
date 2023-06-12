@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     {{ content_for_header }}
 
-    {{ 'style.css' | asset_url | stylesheet_tag }}
-    {{ 'footer.css' | asset_url | stylesheet_tag }}
     {% comment %} {{ 'bootstrap.css' | asset_url | stylesheet_tag }} {% endcomment %}
 
-    {% comment %} {{ 'bootstrap5-3.css' | asset_url | stylesheet_tag }} {% endcomment %}
-
-    {{ 'bootstrap-reboot.css' | asset_url | stylesheet_tag }}
-    {{ 'bootstrap.grid.css' | asset_url | stylesheet_tag }}
-    {{ 'bootstrap-utilities.css' | asset_url | stylesheet_tag }}
+    {% comment %}
+      {{ 'bootstrap-reboot.css' | asset_url | stylesheet_tag }}
+      {{ 'bootstrap-grid.css' | asset_url | stylesheet_tag }}
+      {{ 'bootstrap-utilities.css' | asset_url | stylesheet_tag }}
+    {% endcomment %}
+    {{ 'bootstrap5-3.css' | asset_url | stylesheet_tag }}
+    {{ 'style.css' | asset_url | stylesheet_tag }}
+    {{ 'footer.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
