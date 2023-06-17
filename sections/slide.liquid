@@ -1,3 +1,20 @@
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    {% for slide in section.settings.slides %}
+      <div class="swiper-slide">{{ slide.title }}</div>
+    {% endfor %}
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var swiper = new Swiper('.swiper-container', {
+      // Swiper 옵션 설정
+      // 예: 슬라이드를 수직으로 표시하려면 direction: "vertical"
+    });
+  });
+</script>
 {% schema %}
 {
   "name": "Swiper Slider",
@@ -16,21 +33,3 @@
   ]
 }
 {% endschema %}
-
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    {% for slide in section.settings.slides %}
-      <div class="swiper-slide">{{ slide.title }}</div>
-    {% endfor %}
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var swiper = new Swiper('.swiper-container', {
-      // Swiper 옵션 설정
-      // 예: 슬라이드를 수직으로 표시하려면 direction: "vertical"
-    });
-  });
-</script>
