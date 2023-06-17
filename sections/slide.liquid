@@ -1,0 +1,89 @@
+<!-- Slider main container -->
+<div class="swiper">
+    <!-- Additional required wrapper -->
+     <div class="swiper-wrapper">
+        {%- if section.settings.image != blank -%}
+            <img srcset="{%- if section.settings.image.width >= 165 -%}{{ section.settings.image | img_url: '165x' }} 165w,{%- endif -%} {%- if section.settings.image.width >= 360 -%}{{ section.settings.image | img_url: '360x' }} 360w,{%- endif -%} {%- if section.settings.image.width >= 535 -%}{{ section.settings.image | img_url: '535x' }} 535w,{%- endif -%} {%- if section.settings.image.width >= 750 -%}{{ section.settings.image | img_url: '750x' }} 750w,{%- endif -%} {%- if section.settings.image.width >= 1070 -%}{{ section.settings.image | img_url: '1070x' }} 1070w,{%- endif -%} {%- if section.settings.image.width >= 1500 -%}{{ section.settings.image | img_url: '1500x' }} 1500w,{%- endif -%}" src="{{ section.settings.image | img_url: '1500x' }}" sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)" alt="{{ section.settings.image.alt | escape }}" loading="lazy" width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}">
+        {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+        <!-- Slides -->
+        {% for block in section.blocks %}
+  {% case block.type %}
+    {% when 'slide' %}
+      <div class="swiper-slide" {{ block.shopify_attributes }}>
+        {{ block.settings.image | img_url: '2048x' | img_tag }}
+      </div>
+   {% endcase %}
+{% endfor %}
+
+     <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+</div>
+
+<script>
+    const swiper = new Swiper(".swiper", { // Optional parameters
+        direction: "vertical",
+        loop: true,
+
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination"
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: ".swiper-scrollbar"
+        }
+    });
+</script>
+
+<style>
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+{% schema %}
+
+{
+    "name": "Slideshow",
+    "tag": "section",
+    "class": "slideshow",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Slideshow"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Slide",
+            "type": "slide",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %}
