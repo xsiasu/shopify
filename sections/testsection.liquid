@@ -4,15 +4,15 @@
 <swiper-container init="false">
   {% for block in section.blocks %}
     <swiper-slide>
-      <h1>{{ block.settings.title }}</h1>
-      {% if block.settings.image %}
-        {{
-          block.settings.image
-          | image_url: width: 100%
-          | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
-        }}
-      {% endif %}
-      <img src="">
+      {% if block.settings.image == blank %} placeholder{% endif %}
+      <a href="">
+        {% if block.settings.image %}
+          <img src="{{ block.settings.image | img_url: 'master'}}" width="100%">
+        {% endif %}
+      </a>
+      <a href="">
+        <h1>{{ block.settings.title }}</h1>
+      </a>
     </swiper-slide>
   {% endfor %}
 </swiper-container>
