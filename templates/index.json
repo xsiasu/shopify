@@ -90,12 +90,20 @@
             "title": "slide03",
             "image": "shopify:\/\/shop_images\/1d04c7af-3c13-42f5-86df-a487664d4731.jpg"
           }
+        },
+        "49e4f33b-4902-4f57-9d28-8d620de4cfba": {
+          "type": "column",
+          "settings": {
+            "title": "slide04",
+            "image": "shopify:\/\/shop_images\/83c9bdbf-3814-4cab-a96c-7b8f5749fcfb.jpg"
+          }
         }
       },
       "block_order": [
         "b28ad035-9c86-476c-af5f-ab733f6316d7",
         "8eff2595-142f-420b-80e7-78342d2c349d",
-        "07bcd583-0cf9-4673-8b76-23d5617884b2"
+        "07bcd583-0cf9-4673-8b76-23d5617884b2",
+        "49e4f33b-4902-4f57-9d28-8d620de4cfba"
       ],
       "settings": {
         "heading": "my custom slider"
