@@ -8,7 +8,7 @@
       {% if block.settings.image %}
         {{
           block.settings.image
-          | image_url: width: 400
+          | image_url: width: 100%
           | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
         }}
       {% endif %}
@@ -69,7 +69,7 @@
         slidesPerView: 2,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 5,
       },
     },
     on: {
