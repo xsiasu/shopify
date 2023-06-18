@@ -3,7 +3,17 @@
 <h1>{{ section.settings.heading }}</h1>
 <swiper-container init="false">
   {% for block in section.blocks %}
-    <swiper-slide>{{ block.settings.title }}</swiper-slide>
+    <swiper-slide>
+      <h1>{{ block.settings.title }}</h1>
+      {% if block.settings.image %}
+        {{
+          block.settings.image
+          | image_url: width: 400
+          | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
+        }}
+      {% endif %}
+      <img src="">
+    </swiper-slide>
   {% endfor %}
 </swiper-container>
 
