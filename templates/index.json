@@ -100,6 +100,7 @@
     },
     "4b882225-020b-4dc8-b72c-5ef0cc339b71": {
       "type": "test-collection",
+      "disabled": true,
       "blocks": {
         "4c95c5c6-bc0c-4380-92e7-70627acdb0ce": {
           "type": "column",
