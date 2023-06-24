@@ -1,35 +1,5 @@
 {
   "sections": {
-    "07a2e2c9-437f-40f1-a156-8064ed195f45": {
-      "type": "test-slide",
-      "blocks": {
-        "bed12b85-7ee5-4e26-89aa-ea2a0ad6691e": {
-          "type": "column",
-          "settings": {
-            "mobile_alt": "아이스크림",
-            "mobile_image": "shopify:\/\/shop_images\/ff2c21fd-38e1-46f6-af52-aafa5bae4ccf.jpg",
-            "desktop_alt": "Desktop Alt",
-            "desktop_image": "shopify:\/\/shop_images\/478880f6-3be7-442d-8e59-10ee3651c557.jpg"
-          }
-        },
-        "bc810212-49b7-4d64-b93a-15bbf2ab1e1b": {
-          "type": "column",
-          "settings": {
-            "mobile_alt": "",
-            "mobile_image": "shopify:\/\/shop_images\/ff2c21fd-38e1-46f6-af52-aafa5bae4ccf.jpg",
-            "desktop_alt": "",
-            "desktop_image": "shopify:\/\/shop_images\/71549795-af81-4526-8772-e165dff9c174.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "bed12b85-7ee5-4e26-89aa-ea2a0ad6691e",
-        "bc810212-49b7-4d64-b93a-15bbf2ab1e1b"
-      ],
-      "settings": {
-        "heading": "my custom slider"
-      }
-    },
     "image_banner": {
       "type": "image-banner",
       "disabled": true,
@@ -97,40 +67,10 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "32166d4f-e71a-43cc-a96b-097c712b545a": {
-      "type": "test-collection",
-      "blocks": {
-        "9fb818f4-2efe-4c5b-92b8-b266514745ec": {
-          "type": "column",
-          "settings": {
-            "mobile_alt": "",
-            "desktop_alt": "",
-            "desktop_image": "shopify:\/\/shop_images\/1d04c7af-3c13-42f5-86df-a487664d4731.jpg"
-          }
-        },
-        "5eea54a0-d884-4529-88c8-593b89a72ce2": {
-          "type": "column",
-          "settings": {
-            "mobile_alt": "",
-            "desktop_alt": "",
-            "desktop_image": "shopify:\/\/shop_images\/f0487f94-7e4c-4eb0-b8f5-2c1694ecfa1d.jpg"
-          }
-        }
-      },
-      "block_order": [
-        "9fb818f4-2efe-4c5b-92b8-b266514745ec",
-        "5eea54a0-d884-4529-88c8-593b89a72ce2"
-      ],
-      "settings": {
-        "heading": "my custom slider"
-      }
     }
   },
   "order": [
-    "07a2e2c9-437f-40f1-a156-8064ed195f45",
     "image_banner",
-    "featured_collection",
-    "32166d4f-e71a-43cc-a96b-097c712b545a"
+    "featured_collection"
   ]
 }
