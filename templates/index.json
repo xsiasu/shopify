@@ -97,31 +97,11 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
-    },
-    "4b882225-020b-4dc8-b72c-5ef0cc339b71": {
-      "type": "test-collection",
-      "disabled": true,
-      "blocks": {
-        "4c95c5c6-bc0c-4380-92e7-70627acdb0ce": {
-          "type": "column",
-          "settings": {
-            "mobile_alt": "",
-            "desktop_alt": ""
-          }
-        }
-      },
-      "block_order": [
-        "4c95c5c6-bc0c-4380-92e7-70627acdb0ce"
-      ],
-      "settings": {
-        "heading": "my custom slider"
-      }
     }
   },
   "order": [
     "07a2e2c9-437f-40f1-a156-8064ed195f45",
     "image_banner",
-    "featured_collection",
-    "4b882225-020b-4dc8-b72c-5ef0cc339b71"
+    "featured_collection"
   ]
 }
