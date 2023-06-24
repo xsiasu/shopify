@@ -97,11 +97,31 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "32166d4f-e71a-43cc-a96b-097c712b545a": {
+      "type": "test-collection",
+      "blocks": {
+        "9fb818f4-2efe-4c5b-92b8-b266514745ec": {
+          "type": "column",
+          "settings": {
+            "mobile_alt": "",
+            "desktop_alt": "",
+            "desktop_image": "shopify:\/\/shop_images\/1d04c7af-3c13-42f5-86df-a487664d4731.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "9fb818f4-2efe-4c5b-92b8-b266514745ec"
+      ],
+      "settings": {
+        "heading": "my custom slider"
+      }
     }
   },
   "order": [
     "07a2e2c9-437f-40f1-a156-8064ed195f45",
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "32166d4f-e71a-43cc-a96b-097c712b545a"
   ]
 }
