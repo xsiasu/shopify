@@ -4,7 +4,7 @@
     "theme_name": "First Theme",
     "theme_version": "1.0.0",
     "theme_author": "Sean Kim",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes",
     "theme_support_email": "xsiasu@gmail.com"
   },
   {
@@ -21,7 +21,6 @@
       }
     ]
   },
-
   {
     "name": "Colors",
     "settings": [

@@ -8,7 +8,7 @@
         {% if block.settings.image %}
           <img
             class="slide-image"
-            src="{{ block.settings.desktop_image | img_url: 'master' }}"
+            src="{{ block.settings.banner01_image | img_url: 'master' }}"
             width="100%"
           >
         {% endif %}
@@ -36,13 +36,13 @@
       "settings": [
         {
           "type": "text",
-          "id": "desktop_alt",
-          "label": "Desktop Alt"
+          "id": "banner01_alt",
+          "label": "Banner01 Alt"
         },
         {
           "type": "image_picker",
-          "id": "desktop_image",
-          "label": "Desktop Image"
+          "id": "banner01_image",
+          "label": "Banner Image"
         }
       ]
     }

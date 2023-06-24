@@ -1,24 +1,20 @@
 <!-- Add init="false" -->
 
-{% assign mobileImage = block.settings.mobile_image %}
-{% assign mobileAlt = block.settings.mobile_alt %}
-{% assign desktopImage = block.settings.desktop_image %}
-{% assign desktopAlt = block.settings.desktop_alt %}
-
 <h1>{{ section.settings.heading }}</h1>
 <swiper-container init="false" class="swiper-container-01">
   {% for block in section.blocks %}
     <swiper-slide>
       {% if block.settings.image == blank %} placeholder{% endif %}
-      <a href="">
-        {% if block.settings.image %}
-          <img class="" src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="" width="100%">
-          <img class="" src="{{ block.settings.desktop_image | img_url: 'master' }}" alt="" width="100%">
-        {% endif %}
-      </a>
-      <a href="">
-        <h1>{{ mobieAlt }}</h1>
-      </a>
+      {% if block.settings.image != blank %}
+        <a href="">
+          <img
+            class="slide-image"
+            src="{{ block.settings.desktop_image | img_url: 'master' }}"
+            alt=""
+            width="100%"
+          >
+        </a>
+      {% endif %}
     </swiper-slide>
   {% endfor %}
 </swiper-container>
@@ -77,13 +73,36 @@
 {% endschema %}
 
 {% stylesheet %}
+  .slide-image {
+      /* 이미지에 대한 일반적인 스타일 지정 */
+    }
+
+    {% if template contains 'mobile' %}
+    @media (max-width: 767px) {
+      /* 모바일 장치에 대한 스타일 */
+      .slide-image {
+        background-color:"red"
+        /* 모바일 이미지에 대한 스타일 지정 */
+      }
+    }
+    {% endif %}
+
+    {% if template contains 'desktop' %}
+    @media (min-width: 768px) {
+      /* 데스크탑 장치에 대한 스타일 */
+      .slide-image {
+        background-color:"blue"
+        /* 데스크탑 이미지에 대한 스타일 지정 */
+      }
+    }
+    {% endif %}
 {% endstylesheet %}
 
 {% javascript %}
-  const swiperEl1 = document.querySelector('swiper-container-01');
+  const swiperEl1 = document.querySelector('.swiper-container-01');
 
   // swiper parameters
-  const swiperParams = {
+  const swiperParams1 = {
     slidesPerView: 2,
     breakpoints: {
       640: {
@@ -101,8 +120,8 @@
   };
 
   // now we need to assign all parameters to Swiper element
-  Object.assign(swiperEl1, swiperParams);
+  Object.assign(swiperEl1, swiperParams1);
 
   // and now initialize it
-  swiperEl.initialize();
+  swiperEl1.initialize();
 {% endjavascript %}
