@@ -1,8 +1,10 @@
 <!-- Add init="false" -->
-{% assign mobileImage = block.settings.mobile_image %}
-{% assign mobileAlt = block.settings.mobile_alt %}
-{% assign desktopImage = block.settings.desktop_image %}
-{% assign desktopAlt = block.settings.desktop_alt %}
+{% comment %}
+  {% assign mobileImage = block.settings.mobile_image %}
+  {% assign mobileAlt = block.settings.mobile_alt %}
+  {% assign desktopImage = block.settings.desktop_image %}
+  {% assign desktopAlt = block.settings.desktop_alt %}
+{% endcomment %}
 
 <h1>{{ section.settings.heading }}</h1>
 <swiper-container init="false">
@@ -11,8 +13,8 @@
       {% if block.settings.image == blank %} placeholder{% endif %}
       <a href="">
         {% if block.settings.image %}
-          <img class="slide-image" src="{{ mobileImage | img_url: 'master' }}" alt="{{ mobileAlt }}" width="100%">
-          <img class="slide-image" src="{{ desktopImage | img_url: 'master' }}" alt="{{ desktopAlt }}" width="100%">
+          <img class="" src="{{ block.settings.mobile_image | img_url: 'master' }}" alt="" width="100%">
+          {% comment %} <img class="" src="{{ block.settings.desktop_image | img_url: 'master' }}" alt="" width="100%"> {% endcomment %}
         {% endif %}
       </a>
       <a href="">
@@ -26,6 +28,11 @@
 {% schema %}
 {
   "name": "test-slide",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
   "settings": [
     {
       "type": "text",
@@ -81,10 +88,10 @@
     slidesPerView: 2,
     breakpoints: {
       640: {
-        slidesPerView: 2,
+        slidesPerView: 1,
       },
       1024: {
-        slidesPerView: 5,
+        slidesPerView: 1,
       },
     },
     on: {
