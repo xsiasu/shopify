@@ -108,10 +108,19 @@
             "desktop_alt": "",
             "desktop_image": "shopify:\/\/shop_images\/1d04c7af-3c13-42f5-86df-a487664d4731.jpg"
           }
+        },
+        "5eea54a0-d884-4529-88c8-593b89a72ce2": {
+          "type": "column",
+          "settings": {
+            "mobile_alt": "",
+            "desktop_alt": "",
+            "desktop_image": "shopify:\/\/shop_images\/f0487f94-7e4c-4eb0-b8f5-2c1694ecfa1d.jpg"
+          }
         }
       },
       "block_order": [
-        "9fb818f4-2efe-4c5b-92b8-b266514745ec"
+        "9fb818f4-2efe-4c5b-92b8-b266514745ec",
+        "5eea54a0-d884-4529-88c8-593b89a72ce2"
       ],
       "settings": {
         "heading": "my custom slider"
