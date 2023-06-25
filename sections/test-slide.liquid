@@ -24,6 +24,7 @@
       {% endfor %}
     </swiper-container>
   </div>
+  <div class="col-8"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 {% schema %}
@@ -36,10 +37,14 @@
   },
   "settings": [
     {
-      "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "my custom slider"
+      "type": "image_picker",
+      "id": "small_banner_01",
+      "label": "Small Banner 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_banner_02",
+      "label": "Small Banner 02"
     }
   ],
   "blocks": [
