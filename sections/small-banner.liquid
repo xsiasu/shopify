@@ -1,0 +1,30 @@
+<!-- Add init="false" -->
+
+<ul>
+  <li><img src="{{section.settings.small_banner_01 | img_url: 'master'}}"></li>
+  <li><img src="{{section.settings.small_banner_02 | img_url: 'master'}}"></li>
+</ul>
+
+{% schema %}
+{
+  "name": "small-banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "small_banner_01",
+      "label": "Small Banner 01"
+    },
+    {
+      "type": "image_picker",
+      "id": "small_banner_02",
+      "label": "Small Banner 02"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

@@ -1,24 +1,30 @@
 <!-- Add init="false" -->
-
-<h1>{{ section.settings.heading }}</h1>
-<swiper-container init="false" class="swiper-container-01">
-  {% for block in section.blocks %}
-    <swiper-slide>
-      {% if block.settings.image == blank %} placeholder{% endif %}
-      {% if block.settings.image != blank %}
-        <a href="">
-          <img
-            class="slide-image"
-            src="{{ block.settings.desktop_image | img_url: 'master' }}"
-            alt=""
-            width="100%"
-          >
-        </a>
-      {% endif %}
-    </swiper-slide>
-  {% endfor %}
-</swiper-container>
-
+<div class="row">
+  <div class="col-8">
+    <swiper-container init="false" class="swiper-container-mobile">
+      {% for block in section.blocks %}
+        <swiper-slide id="Slide{{block.id}}">
+          <a href="">
+            {% if mobie_image %}
+              <img
+                class=""
+                src="{{ block.settings.mobile_image | img_url: 'master'}}"
+                width="100%"
+              >
+            {% endif %}
+            {% if block.settings.desktop_image %}
+              <img
+                class=""
+                src="{{ block.settings.desktop_image | img_url: 'master'}}"
+                width="100%"
+              >
+            {% endif %}
+          </a>
+        </swiper-slide>
+      {% endfor %}
+    </swiper-container>
+  </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 {% schema %}
 {
@@ -38,18 +44,14 @@
   ],
   "blocks": [
     {
-      "type": "column",
+      "type": "image",
       "name": "slide",
       "settings": [
         {
-          "type": "text",
-          "id": "mobile_alt",
-          "label": "Mobile Alt"
-        },
-        {
           "type": "image_picker",
-          "id": "mobile_image",
-          "label": "Mobile Image"
+          "id": "desktop_image",
+          "label": "Desktop Image",
+          "info": "1560 x 1050px jpg recommended"
         },
         {
           "type": "text",
@@ -58,14 +60,21 @@
         },
         {
           "type": "image_picker",
-          "id": "desktop_image",
-          "label": "Desktop Image"
+          "id": "mobile_image",
+          "label": "Mobile Image",
+          "info": "750 x 1100px jpg recommended. If none is set, desktop image will be cropped."
+        },
+        {
+          "type": "text",
+          "id": "mobile_alt",
+          "label": "Mobile Alt"
         }
       ]
     }
   ],
   "presets": [
     {
+      "category": "Image",
       "name": "test-slide"
     }
   ]
@@ -73,42 +82,16 @@
 {% endschema %}
 
 {% stylesheet %}
-  .slide-image {
-      /* 이미지에 대한 일반적인 스타일 지정 */
-    }
-
-    {% if template contains 'mobile' %}
-    @media (max-width: 767px) {
-      /* 모바일 장치에 대한 스타일 */
-      .slide-image {
-        background-color:"red"
-        /* 모바일 이미지에 대한 스타일 지정 */
-      }
-    }
-    {% endif %}
-
-    {% if template contains 'desktop' %}
-    @media (min-width: 768px) {
-      /* 데스크탑 장치에 대한 스타일 */
-      .slide-image {
-        background-color:"blue"
-        /* 데스크탑 이미지에 대한 스타일 지정 */
-      }
-    }
-    {% endif %}
 {% endstylesheet %}
 
 {% javascript %}
-  const swiperEl1 = document.querySelector('.swiper-container-01');
+  const swiperElMobile = document.querySelector('.swiper-container-mobile');
 
   // swiper parameters
-  const swiperParams1 = {
-    slidesPerView: 2,
+  const swiperParamsMobile = {
+    slidesPerView: 1,
     breakpoints: {
-      640: {
-        slidesPerView: 1,
-      },
-      1024: {
+      768: {
         slidesPerView: 1,
       },
     },
@@ -120,8 +103,8 @@
   };
 
   // now we need to assign all parameters to Swiper element
-  Object.assign(swiperEl1, swiperParams1);
+  Object.assign(swiperElMobile, swiperParamsMobile);
 
   // and now initialize it
-  swiperEl1.initialize();
+  swiperElMobile.initialize();
 {% endjavascript %}
