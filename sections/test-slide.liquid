@@ -1,30 +1,39 @@
 <!-- Add init="false" -->
-<div class="row">
-  <div class="col-8">
-    <swiper-container init="false" class="swiper-container-mobile">
-      {% for block in section.blocks %}
-        <swiper-slide id="Slide{{block.id}}">
-          <a href="">
-            {% if mobie_image %}
-              <img
-                class=""
-                src="{{ block.settings.mobile_image | img_url: 'master'}}"
-                width="100%"
-              >
-            {% endif %}
-            {% if block.settings.desktop_image %}
-              <img
-                class=""
-                src="{{ block.settings.desktop_image | img_url: 'master'}}"
-                width="100%"
-              >
-            {% endif %}
-          </a>
-        </swiper-slide>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-9">
+      <swiper-container init="false" class="swiper-container-mobile">
+        {% for block in section.blocks %}
+          <swiper-slide id="Slide{{block.id}}">
+            <a href="">
+              {% if mobie_image %}
+                <img
+                  class=""
+                  src="{{ block.settings.mobile_image | img_url: 'master'}}"
+                  width="100%"
+                >
+              {% endif %}
+              {% if block.settings.desktop_image %}
+                <img
+                  class=""
+                  src="{{ block.settings.desktop_image | img_url: 'master'}}"
+                  width="100%"
+                >
+              {% endif %}
+            </a>
+          </swiper-slide>
+        {% endfor %}
+      </swiper-container>
+    </div>
+    <div class="col-3 small-banner">
+      {% for blockimg in section.blocks %}
+        <div><img src="{{blockimg.settings.small_banner_01 | img_url: 'master'}}" width="100%"></div>
+        <div>
+          <img src="{{blockimg.settings.small_banner_02 | img_url: 'master'}}" width="100%">
+        </div>
       {% endfor %}
-    </swiper-container>
+    </div>
   </div>
-  <div class="col-8"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
 {% schema %}
@@ -35,18 +44,7 @@
   "disabled_on": {
     "groups": ["header", "footer"]
   },
-  "settings": [
-    {
-      "type": "image_picker",
-      "id": "small_banner_01",
-      "label": "Small Banner 01"
-    },
-    {
-      "type": "image_picker",
-      "id": "small_banner_02",
-      "label": "Small Banner 02"
-    }
-  ],
+  "settings": [],
   "blocks": [
     {
       "type": "image",
@@ -73,6 +71,16 @@
           "type": "text",
           "id": "mobile_alt",
           "label": "Mobile Alt"
+        },
+        {
+          "type": "image_picker",
+          "id": "small_banner_01",
+          "label": "Small Banner 01"
+        },
+        {
+          "type": "image_picker",
+          "id": "small_banner_02",
+          "label": "Small Banner 02"
         }
       ]
     }
@@ -87,6 +95,10 @@
 {% endschema %}
 
 {% stylesheet %}
+  .small-banner {
+    align-content: space-between;
+    display: grid;
+  }
 {% endstylesheet %}
 
 {% javascript %}
