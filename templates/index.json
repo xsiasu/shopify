@@ -1,8 +1,5 @@
 {
   "sections": {
-    "test_slide": {
-      "type": "test-slide"
-    },
     "image_banner": {
       "type": "image-banner",
       "disabled": true,
@@ -69,5 +66,5 @@
       }
     }
   },
-  "order": ["test_slide", "image_banner", "featured_collection"]
+  "order": ["image_banner", "featured_collection"]
 }

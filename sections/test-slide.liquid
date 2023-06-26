@@ -25,7 +25,7 @@
         {% endfor %}
       </swiper-container>
     </div>
-    <div class="col-3 small-banner">
+    <div class="col-3" style="display:grid;align-content:space-between">
       {% for blockimg in section.blocks %}
         <div><img src="{{blockimg.settings.small_banner_01 | img_url: 'master'}}" width="100%"></div>
         <div>
@@ -95,10 +95,6 @@
 {% endschema %}
 
 {% stylesheet %}
-  .small-banner {
-    align-content: space-between;
-    display: grid;
-  }
 {% endstylesheet %}
 
 {% javascript %}
