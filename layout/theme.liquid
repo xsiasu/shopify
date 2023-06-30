@@ -31,11 +31,19 @@
     </a>
 
     {% section 'header' %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-9">
+          {% section 'test-slide' %}
+        </div>
+        <div class="col-3">
+          {% section 'small-banner' %}
+        </div>
+      </div>
+    </div>
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
-    {% comment %} {{ content_for_layout }} {% endcomment %}
-    {% comment %} <div style="height:500px"></div> {% endcomment %}
     {% section 'footer' %}
   </body>
 </html>
