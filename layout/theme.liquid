@@ -14,16 +14,11 @@
 
     {{ content_for_header }}
 
-    {% comment %} {{ 'bootstrap.css' | asset_url | stylesheet_tag }} {% endcomment %}
-
-    {% comment %}
-      {{ 'bootstrap-reboot.css' | asset_url | stylesheet_tag }}
-      {{ 'bootstrap-grid.css' | asset_url | stylesheet_tag }}
-      {{ 'bootstrap-utilities.css' | asset_url | stylesheet_tag }}
-    {% endcomment %}
     {{ 'bootstrap5-3.css' | asset_url | stylesheet_tag }}
     {{ 'style.css' | asset_url | stylesheet_tag }}
     {{ 'footer.css' | asset_url | stylesheet_tag }}
+
+    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
   </head>
   <body>
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -31,16 +26,7 @@
     </a>
 
     {% section 'header' %}
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-9">
-          {% section 'test-slide' %}
-        </div>
-        <div class="col-3">
-          {% section 'small-banner' %}
-        </div>
-      </div>
-    </div>
+
     <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
